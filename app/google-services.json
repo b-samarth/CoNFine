@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "316578103209",
+    "firebase_url": "https://confine-7cf3d.firebaseio.com",
+    "project_id": "confine-7cf3d",
+    "storage_bucket": "confine-7cf3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316578103209:android:2155070c162a6a18560eb8",
+        "android_client_info": {
+          "package_name": "com.defiance.confine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316578103209-u2n1rudjngs02fggpscgg80v54jf9j10.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcrbcIBieCrc8xsAwqybNexTAWki5r-Nk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316578103209-u2n1rudjngs02fggpscgg80v54jf9j10.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
