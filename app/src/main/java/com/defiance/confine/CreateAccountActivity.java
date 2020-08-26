@@ -111,10 +111,12 @@ import java.util.Objects;
                           Toast.makeText(getApplicationContext(), "Account Created Succesfully", Toast.LENGTH_SHORT).show();
                           mAuth = FirebaseAuth.getInstance();
                           mUser = mAuth.getCurrentUser();
+                          String uid = mUser.getUid();
+                          if (!TextUtils.isEmpty(uid)) {
                               Map<String, String> user = new HashMap<>();
                               user.put("username", username);
                               user.put("email", email);
-//                              user.put("uid", mUser.getUid());
+                              user.put("uid", mUser.getUid());
                               db.collection("Users").document(email).set(user)
                                       .addOnSuccessListener(new OnSuccessListener<Void>() {
                                           @Override
@@ -132,6 +134,11 @@ import java.util.Objects;
                               mAuth.signOut();
                               startActivity(new Intent(CreateAccountActivity.this, LoginActivity.class));
                               finish();
+                          }
+                          else {
+                              Log.d(TAG,"uid Null");
+                              Toast.makeText(CreateAccountActivity.this, "Something went wrong \nPlease try again", Toast.LENGTH_LONG).show();
+                          }
                       }
                   });
       }

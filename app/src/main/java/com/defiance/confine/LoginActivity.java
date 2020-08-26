@@ -178,20 +178,22 @@ public class LoginActivity extends AppCompatActivity {
             users.put("uid",user.getUid());
 
             db.collection("Users")
-                    .add(users)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    .document(user.getEmail())
+                    .set(users)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d(TAG,"Success "+documentReference);
+                        public void onSuccess(Void aVoid) {
+                            Log.d(TAG, "Success ");
+
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Log.d(TAG, "Error "+e.toString());
-
+                            Log.d(TAG, "Error " + e.toString());
                         }
                     });
+
             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             finish();
         }
