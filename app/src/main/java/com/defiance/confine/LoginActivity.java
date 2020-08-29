@@ -159,18 +159,18 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "linktofirebase success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            updateUI();
                         }
                         else {
                             Log.d(TAG, "linktofirebase failed");
-                            updateUI(null);
+                            updateUI();
                         }
                     }
                 });
     }
 
-    private void updateUI(FirebaseUser user) {
+    private void updateUI() {
+        FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
             Map<String, String> users = new HashMap<>();
             users.put("username", user.getDisplayName());
@@ -178,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
             users.put("uid",user.getUid());
 
             db.collection("Users")
-                    .document(user.getEmail())
+                    .document(user.getUid())
                     .set(users)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

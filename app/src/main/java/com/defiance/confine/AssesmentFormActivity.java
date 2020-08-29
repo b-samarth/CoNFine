@@ -39,7 +39,7 @@ public class AssesmentFormActivity extends AppCompatActivity {
     private Adapter adapter;
     private List<Model> models;
     private AutoScroller autoScroller;
-    Button testbtn;
+    private Button next_btn;
     private TextView covid_head, covid_data;
     ProgressBar pb;
 
@@ -67,7 +67,7 @@ public class AssesmentFormActivity extends AppCompatActivity {
         pb = findViewById(R.id.pb);
 
         adapter = new Adapter(models, this);
-        testbtn = findViewById(R.id.testbtn);
+        next_btn = findViewById(R.id.next_btn);
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(adapter);
         viewPager.setPadding(130,0,130,0);
@@ -108,5 +108,13 @@ public class AssesmentFormActivity extends AppCompatActivity {
 
         requestQueue.add(jsonObjectRequest);
 //        Intent intent = new Intent(AssesmentFormActivity.this, CovidCases.class);
+
+
+        next_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AssesmentFormActivity.this, FormActivity.class));
+            }
+        });
     }
 }
