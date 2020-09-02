@@ -1,8 +1,5 @@
 package com.defiance.confine;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,7 +34,7 @@ public class AssesmentFormActivity extends AppCompatActivity {
     private List<Model> models;
     private AutoScroller autoScroller;
     private Button next_btn;
-    private TextView covid_head, covid_data;
+    private TextView total_cases, active_cases;
     ProgressBar pb;
 
     JSONObject jsonObject = null;
@@ -56,8 +56,8 @@ public class AssesmentFormActivity extends AppCompatActivity {
         models.add(new Model(R.mipmap.card_5));
         models.add(new Model(R.mipmap.card_6));
 
-        covid_data = findViewById(R.id.covid_data);
-        covid_head = findViewById(R.id.covid_head);
+        total_cases = findViewById(R.id.total_cases);
+        active_cases = findViewById(R.id.active_cases);
         pb = findViewById(R.id.pb);
 
         adapter = new Adapter(models, this);
@@ -82,8 +82,8 @@ public class AssesmentFormActivity extends AppCompatActivity {
                     map.put("deathsNew", response.get("deathsNew").toString());
                     map.put("totalCases", response.get("totalCases").toString());
                     pb.setVisibility(View.GONE);
-                    covid_head.setText("Total Active Cases");
-                    covid_data.setText(response.get("activeCases").toString());
+                    total_cases.setText(map.get("totalCases"));
+                    active_cases.setText(map.get("activeCases"));
 
                 } catch (JSONException e) {
                     e.printStackTrace();

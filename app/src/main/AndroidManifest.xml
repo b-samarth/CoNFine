@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.defiance.confine" >
+    package="com.defiance.confine">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -10,12 +10,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".DosAndDontsActivity"></activity>
+        <activity android:name=".MythBustersActivity" />
+        <activity android:name=".SelfQuarantine" />
+        <activity android:name=".TipsActivity" />
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".FormActivity" />
         <activity android:name=".HomeActivity" />
