@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".DiseaseFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/symptoms"
+            android:textColor="#5142B2"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center_horizontal"
+            android:padding="20dp"
+            android:layout_marginTop="16dp"
+            android:textSize="30sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/diabetes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/diabetes"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+
+            <CheckBox
+                android:id="@+id/hypertension"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/hyper"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:id="@+id/lungs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/lungs"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:id="@+id/heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/heart"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:id="@+id/kidney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/kidney"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:id="@+id/liver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/liver"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:id="@+id/blood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/blood"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <CheckBox
+                android:id="@+id/immune"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
+                android:text="@string/immune"
+                android:textColor="#5142B2"
+                android:fontFamily="@font/roboto"
+                android:textSize="25sp"
+                android:button="@drawable/custom_checkbox"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/arbutus"
+                android:textSize="15sp"
+                android:textColor="#000"
+                android:text="@string/skip"/>
+
+            <Button
+                android:id="@+id/next_disease"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/round_blue_btn"
+                android:textColor="#fff"
+                android:fontFamily="@font/roboto"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</ScrollView>

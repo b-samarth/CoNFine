@@ -12,13 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
+            android:name=".NavigationActivity"
+            android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity android:name=".ResultActivity" />
         <activity android:name=".FormActivity" />
-        <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".AssesmentFormActivity" />
         <activity android:name=".LoginActivity" />

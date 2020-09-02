@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ContactDaysFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_days"
+            android:textColor="#5142B2"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center_horizontal"
+            android:padding="20dp"
+            android:layout_marginTop="16dp"
+            android:textSize="30sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/contact_days_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/less5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/less_5"
+                    android:fontFamily="@font/roboto"
+                    android:padding="10dp"
+                    android:textColor="#5142B2"
+                    android:textSize="20sp"
+                    android:maxLines="3"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:button="@drawable/custom_checkbox"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/more5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/more_5"
+                    android:fontFamily="@font/roboto"
+                    android:padding="10dp"
+                    android:textColor="#5142B2"
+                    android:textSize="20sp"
+                    android:maxLines="3"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:button="@drawable/custom_checkbox"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/more14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="@string/more_14"
+                    android:fontFamily="@font/roboto"
+                    android:padding="10dp"
+                    android:textColor="#5142B2"
+                    android:textSize="20sp"
+                    android:maxLines="3"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:button="@drawable/custom_checkbox"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/next_contact_days"
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:text="@string/next"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/round_blue_btn"
+                android:textColor="#fff"
+                android:fontFamily="@font/roboto"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</ScrollView>
+
