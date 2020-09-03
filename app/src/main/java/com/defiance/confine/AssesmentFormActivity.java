@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AssesmentFormActivity extends AppCompatActivity {
+public class AssesmentFormActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewPager viewPager;
     private Adapter adapter;
@@ -35,18 +34,20 @@ public class AssesmentFormActivity extends AppCompatActivity {
     private AutoScroller autoScroller;
     private Button next_btn;
     private TextView total_cases, active_cases;
-    ProgressBar pb;
+    private TextView text1, text2;
 
     JSONObject jsonObject = null;
     String  url = "https://api.apify.com/v2/key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST";
-    Map<String, String> map = new HashMap<>();
+    public static Map<String, String> map = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assesment_form);
-        pb = findViewById(R.id.pb);
-        pb.setVisibility(View.VISIBLE);
+        text1 = findViewById(R.id.head_text_1);
+        text2 = findViewById(R.id.head_text_2);
+        text1.setVisibility(View.GONE);;
+        text2.setVisibility(View.GONE);
 
         models = new ArrayList<>();
         models.add(new Model(R.mipmap.card_1));
@@ -58,7 +59,6 @@ public class AssesmentFormActivity extends AppCompatActivity {
 
         total_cases = findViewById(R.id.total_cases);
         active_cases = findViewById(R.id.active_cases);
-        pb = findViewById(R.id.pb);
 
         adapter = new Adapter(models, this);
         next_btn = findViewById(R.id.next_btn);
@@ -81,9 +81,12 @@ public class AssesmentFormActivity extends AppCompatActivity {
                     map.put("deaths", response.get("deaths").toString());
                     map.put("deathsNew", response.get("deathsNew").toString());
                     map.put("totalCases", response.get("totalCases").toString());
-                    pb.setVisibility(View.GONE);
+                    text1.setVisibility(View.VISIBLE);;
+                    text2.setVisibility(View.VISIBLE);
                     total_cases.setText(map.get("totalCases"));
                     active_cases.setText(map.get("activeCases"));
+                    Log.wtf("Text", total_cases.getText().toString());
+                    Log.wtf("JSON", response.get("totalCases").toString()       );
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -110,5 +113,13 @@ public class AssesmentFormActivity extends AppCompatActivity {
                 startActivity(new Intent(AssesmentFormActivity.this, FormActivity.class));
             }
         });
+
+        text1.setOnClickListener(this);
+        text2.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        startActivity(new Intent(AssesmentFormActivity.this, CovidCasesActivity.class));
     }
 }
