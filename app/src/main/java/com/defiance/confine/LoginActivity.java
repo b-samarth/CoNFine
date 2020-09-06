@@ -1,14 +1,14 @@
 package com.defiance.confine;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     private int RC_SIGN_IN = 1;
     private Map<String,String> users = new HashMap<>();
     private ProgressBar pb;
+    public static GoogleSignInOptions gso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +47,13 @@ public class LoginActivity extends AppCompatActivity {
         pb = findViewById(R.id.login_pb);
 
         db = FirebaseFirestore.getInstance();
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        Log.wtf("mGoogleSignInClient", mGoogleSignInClient.toString());
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -98,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             updateUI(user);
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            startActivity(new Intent(LoginActivity.this, NavigationDrawerActivity.class));
                             pb.setVisibility(View.INVISIBLE);
                             finish();
                         }
@@ -112,12 +114,10 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 
         if (user != null) {
-            users.put("uid", user.getUid());
-            users.put("email", user.getEmail());
             users.put("name", user.getDisplayName());
 
             db.collection("Users")
-                    .document(user.getUid())
+                    .document(user.getEmail())
                     .set(users)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -139,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
         if(account != null) {
-            startActivity(new Intent(LoginActivity.this, AssesmentFormActivity.class));
+            startActivity(new Intent(LoginActivity.this, NavigationDrawerActivity.class));
             finish();
         }
     }

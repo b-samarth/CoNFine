@@ -1,17 +1,13 @@
 package com.defiance.confine;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-
-import com.defiance.confine.CombinationData;
-import com.defiance.confine.R;
-import com.defiance.confine.WarningFragment;
-
 public class FormActivity extends AppCompatActivity {
 
-    public static int b,g,s,p ,a;
+    public static int b=-1,g=-1,s=-1,p=-1 ,a=-1;
     public static int l=0, m=0, h=0;
     public static CombinationData data;
 
@@ -19,6 +15,7 @@ public class FormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
         data = new CombinationData();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.main_frame, new WarningFragment());

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -49,15 +48,15 @@ public class Adapter extends PagerAdapter {
                 if (position == 1)
                     context.startActivity(new Intent(context, MythBustersActivity.class));
                 else if (position == 2)
-                    Toast.makeText(context, "Position 2", Toast.LENGTH_LONG).show();
+                    context.startActivity(new Intent(context, PreventiveMeasuresActivity.class));
                 else if  (position == 3)
-                    context.startActivity(new Intent(context, SelfQuarantine.class));
+                    context.startActivity(new Intent(context, SelfQuarantineActivity.class));
                 else if (position == 4)
                     context.startActivity(new Intent(context, TipsActivity.class));
                 else if (position == 5)
-                    Toast.makeText(context, "Position 5", Toast.LENGTH_LONG).show();
+                    context.startActivity(new Intent(context, DosAndDontsActivity.class));
                 else if (position == 6)
-                    Toast.makeText(context, "Position 6", Toast.LENGTH_LONG).show();
+                    context.startActivity(new Intent(context, MentalHealthActivity.class));
             }
         });
         container.addView(view, 0);

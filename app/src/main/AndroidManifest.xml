@@ -3,6 +3,7 @@
     package="com.defiance.confine">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -11,19 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CovidCasesActivity"></activity>
-        <activity android:name=".DosAndDontsActivity" ></activity>
+        <activity android:name=".NavigationDrawerActivity"></activity>
+        <activity android:name=".DietPlanActivity" />
+        <activity android:name=".MentalHealthActivity" />
+        <activity android:name=".PreventiveMeasuresActivity" />
+        <activity android:name=".CovidCasesActivity" />
+        <activity android:name=".DosAndDontsActivity" />
         <activity android:name=".MythBustersActivity" />
-        <activity android:name=".SelfQuarantine" />
+        <activity android:name=".SelfQuarantineActivity" />
         <activity android:name=".TipsActivity" />
-        <activity
-            android:name=".NavigationActivity"
-            android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ResultActivity" />
         <activity android:name=".FormActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".AssesmentFormActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

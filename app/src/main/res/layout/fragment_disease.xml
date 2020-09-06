@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/symptoms"
+            android:text="@string/disease"
             android:textColor="#5142B2"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center_horizontal"

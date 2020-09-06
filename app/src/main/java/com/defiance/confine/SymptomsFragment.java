@@ -1,13 +1,6 @@
 package com.defiance.confine;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,30 +8,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
-
-import java.util.HashMap;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class SymptomsFragment extends Fragment {
-    private Map<String, String> map = new HashMap<String, String>()
-    {
-        {
-            put("cough", "no");
-            put("muffled", "no");
-            put("shortness", "no");
-            put("fever", "no");
-            put("nausea", "no");
-            put("diarrhoea", "no");
-            put("sense", "no");
-        }
-    };
+
     private Button button;
-    private FirebaseUser user;
-    private FirebaseFirestore db;
     private CheckBox cough, muffled, breath, fever, nausea, diarrhoea, sense;
 
     @Nullable
@@ -46,10 +23,16 @@ public class SymptomsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_symptoms, container, false);
 
-        button = view.findViewById(R.id.next_symptoms);
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        db = FirebaseFirestore.getInstance();
+        NavigationDrawerActivity.map.put("hasCough", "false");
+        NavigationDrawerActivity.map.put("isMuffled", "false");
+        NavigationDrawerActivity.map.put("hasShortness", "false");
+        NavigationDrawerActivity.map.put("hasFever", "false");
+        NavigationDrawerActivity.map.put("hasNausea", "false");
+        NavigationDrawerActivity.map.put("hasDiarrhoea", "false");
+        NavigationDrawerActivity.map.put("hasSenseLoss", "false");
 
+
+        button = view.findViewById(R.id.next_symptoms);
         cough = view.findViewById(R.id.cough);
         muffled = view.findViewById(R.id.muffled);
         breath = view.findViewById(R.id.breath);
@@ -71,10 +54,6 @@ public class SymptomsFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.wtf("Map", String.valueOf(map));
-                db.collection("Users")
-                        .document(user.getUid())
-                    .set(map, SetOptions.merge());
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_frame, new DiseaseFragment());
                 transaction.commit();
@@ -89,84 +68,84 @@ public class SymptomsFragment extends Fragment {
             switch (compoundButton.getId()) {
                 case R.id.cough:
                     if (b) {
-                        map.put("cough", "yes");
+                        NavigationDrawerActivity.map.put("hasCough", "true");
                         FormActivity.l += 1;
                         FormActivity.data.addtoString('L');
                     }
                     else {
-                        map.put("cough", "no");
+                        NavigationDrawerActivity.map.put("hasCcough", "false");
                         FormActivity.l -= 1;
                         FormActivity.data.removeFromString();
                     }
                     break;
                 case R.id.muffled:
                     if (b) {
-                        map.put("muffled", "yes");
+                        NavigationDrawerActivity.map.put("isMuffled", "true");
                         FormActivity.l += 1;
                         FormActivity.data.addtoString('L');
                     }
                     else {
-                        map.put("muffled", "no");
+                        NavigationDrawerActivity.map.put("isMuffled", "true");
                         FormActivity.l -= 1;
                         FormActivity.data.removeFromString();
                     }
                     break;
                 case R.id.breath:
                     if (b) {
-                        map.put("shortness", "yes");
+                        NavigationDrawerActivity.map.put("hasShortness", "true");
                         FormActivity.m += 1;
                         FormActivity. data.addtoString('M');
                     }
                     else {
-                        map.put("shortness", "no");
+                        NavigationDrawerActivity.map.put("hasShortness", "false");
                         FormActivity.m -= 1;
                         FormActivity.data.removeFromString();
                     }
                     break;
                 case R.id.fever:
                     if (b) {
-                        map.put("fever", "yes");
+                        NavigationDrawerActivity.map.put("hasFever", "true");
                         FormActivity.m += 1;
                         FormActivity.data.addtoString('M');
                     }
                     else {
-                        map.put("fever", "no");
+                        NavigationDrawerActivity.map.put("hasFever", "false");
                         FormActivity.m -= 1;
                         FormActivity.data.removeFromString();
                     }
                     break;
                 case R.id.nausea:
                     if (b) {
-                        map.put("nausea", "yes");
+                        NavigationDrawerActivity.map.put("hasNausea", "true");
                         FormActivity.m += 1;
                         FormActivity.data.addtoString('M');
                     }
                     else {
-                        map.put("nausea", "no");
+                        NavigationDrawerActivity.map.put("hasNausea", "false");
                         FormActivity.m -= 1;
                         FormActivity.data.removeFromString();
                     }
                     break;
                 case R.id.diarrhoea:
                     if (b) {
-                        map.put("diarrhoea", "yes");
+                        NavigationDrawerActivity.map.put("hasDiarrhoea", "true");
                         FormActivity.m += 1;
                         FormActivity.data.addtoString('M');
                     }
                     else {
-                        map.put("diarrhoea", "no");
+                        NavigationDrawerActivity.map.put("hasDiarrhoea", "false");
                         FormActivity.m -= 1;
                         FormActivity.data.removeFromString();
                     }
                     break;
                 case R.id.sense:
                     if (b) {
-                        map.put("sense", "yes");
+                        NavigationDrawerActivity.map.put("hasSenseLoss", "true");
                         FormActivity.m += 1;
                         FormActivity.data.addtoString('M');
                     }
                     else {
-                        map.put("sense", "no");
+                        NavigationDrawerActivity.map.put("hasSenseLoss", "false");
                         FormActivity.m -= 1;
                         FormActivity.data.removeFromString();
                     }

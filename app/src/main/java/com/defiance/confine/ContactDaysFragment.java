@@ -13,22 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
-
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class ContactDaysFragment extends Fragment {
 
     private RadioGroup contact_days_group;
-    private FirebaseFirestore db;
-    private FirebaseUser user;
     private Button button;
-    private Map<String,String> map = new HashMap<>();
     private int checked = 0;
 
     @Nullable
@@ -37,8 +26,6 @@ public class ContactDaysFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_contact_days, container, false);
 
         contact_days_group = view.findViewById(R.id.contact_days_group);
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        db = FirebaseFirestore.getInstance();
         button = view.findViewById(R.id.next_contact_days);
 
         contact_days_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -47,15 +34,15 @@ public class ContactDaysFragment extends Fragment {
                 switch (i) {
                     case R.id.less5:
                         checked = 1;
-                        map.put("contactDays", "lessThan5");
+                        NavigationDrawerActivity.map.put("contactDays", "lessThan5");
                         break;
                     case R.id.more5:
                         checked = 2;
-                        map.put("contactDays", "moreThan5");
+                        NavigationDrawerActivity.map.put("contactDays", "moreThan5");
                         break;
                     case R.id.more14:
                         checked = 3;
-                        map.put("contactDays", "moreThan14");
+                        NavigationDrawerActivity.map.put("contactDays", "moreThan14");
                         break;
                 }
 
@@ -93,9 +80,6 @@ public class ContactDaysFragment extends Fragment {
     }
 
     private void changeActivity() {
-        db.collection("Users")
-                .document(user.getUid())
-                .set(map, SetOptions.merge());
         Intent intent = new Intent(getActivity(), ResultActivity.class);
         startActivity(intent);
         getActivity().finish();
