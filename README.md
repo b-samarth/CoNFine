@@ -1,9 +1,9 @@
 # CoNFine
-A tiny project for people who are in self-isolation due to COVID-19. (In Progress)
+A tiny project for people who are in self-isolation due to COVID-19.
 
-# Still under developmeny
+# Still under development
 
-### I am a complete noob in Android Programming.
+### I am a beginner in Android Programming.
 
 #### This is just a very small contribution from my side for people in self-isolation.
 #### I hope atleast some of you can benefit from this app
